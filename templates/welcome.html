@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block tittle%} Welcome {% endblock%}
+{% block content%}
+    <h1>Welcome to page</h1>
+    <p>This is a test application which i am building using a course from
+       <em><a href="https://www.pluralsight.com">pluralsight </a></em>
+    </p>
+    <p>{{message}}
+        <em>My name is {{name}} and my age is {{age}}</em>
+    </p>
+    <h2>Links for pages</h2>
+    <ul>
+        {% for card in cards %}
+            <li>
+                <a href="{{ url_for('card', index=loop.index0) }}">{{card.question}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Links for REST api</h2>
+    <ul>
+        {% for card in cards %}
+            <li>
+                <a href="{{ url_for('api_card',index=loop.index0) }}">{{card.question}}</a>
+            </li>
+        {% endfor %}
+        <a href="{{ url_for('api_introduction') }}">whole data</a>
+    </ul>
+    
+    <p>
+        <a href="{{url_for('api_add_card')}}">add new card page</a> 
+    </p>
+    <img src="static/pic.png">       
+{% endblock %}
+

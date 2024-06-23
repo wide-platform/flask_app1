@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block tittle%} Remove card {% endblock%}
+{% block content%}
+<body>
+    <h1>Add card</h1>
+    <form method="post">
+        <p> 
+            Question:
+            <input type="text" name="question">
+        </p>
+        <p> 
+            Answer:
+            <input type="text" name="answer">
+        </p>
+        <button type="submit">create card</button>      
+    </form>  
+{% endblock %}

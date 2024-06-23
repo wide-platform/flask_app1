@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block tittle%} Remove card {% endblock%}
+{% block content%}
+<body>
+    <h1>Welcome to  card page</h1>
+    <p>Question : {{card.question}} <br>
+        Answer : {{card.answer}}
+    </p>  
+    <p>
+        {% if index < max_index %}
+            <button>
+                <a href="{{url_for('card',index=index+1)}}">next page</a>
+            </button>
+        {% else %}
+            <button>
+                <a href="{{url_for('card',index=0)}}">start page</a>
+            </button>
+        {% endif %}
+        <button>
+            <a href="{{url_for('introduction')}}">welcome page</a>
+        </button>
+        <a href ="{{url_for('api_remove_card', index=index)}}">Remove this card</a>
+        
+    </p>    
+{% endblock %}
